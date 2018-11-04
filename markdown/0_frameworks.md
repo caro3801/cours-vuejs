@@ -37,7 +37,6 @@ Toutes les actions passent par le dispatcher
 Seuls les stores signalent aux vues qu'il faut se mettre à jour  
 ref: [PDC : Flux](https://putaindecode.io/fr/articles/js/flux/)
 
-
 ## Functional reactive programming 
 > Reactive Programming is an asynchronous programming paradigm concerned with data streams and the propagation of change.
 > -- Wikipedia
