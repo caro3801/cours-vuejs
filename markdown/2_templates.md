@@ -10,24 +10,23 @@ Syntaxe de template (ex. interpolation de texte):
 ```js
 //script js
 let app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello World !'
-  }
-})
+    el: "#app",
+    data: {
+        message: "Hello World !"
+    }
+});
 ```
 ```txt
 Hello World !
 ```
 
 ## Templates
-* Les templates sont basés sur la syntaxe HTML (déclaratif)
-* Liaison (binding) entre le DOM rendu et les données de l'instance Vue  
-* HTML valide (spec-compliant)
-* Le template est compilé sous la forme de fonctions de rendu dans le *virtual DOM*.  
+-   Les templates sont basés sur la syntaxe HTML (déclaratif)
+-   Liaison (binding) entre le DOM rendu et les données de l'instance Vue
+-   HTML valide (spec-compliant)
+-   Le template est compilé sous la forme de fonctions de rendu dans le _virtual DOM_.
   
-*possibilité d'utiliser JSX (voir cours react)*
-
+_possibilité d'utiliser JSX (voir cours react)_
 
 ## Binding de données
 Liaison d'un attribut d'un élément
@@ -37,7 +36,7 @@ Liaison d'un attribut d'un élément
   <span v-bind:title="message">Hello again !</span>
 </div>
 ```
-```js 
+```js
 //script js
 let app = new Vue({
   el: '#app',
@@ -46,37 +45,31 @@ let app = new Vue({
   }
 })
 ```
-  
 Que se passe-t-il?
 
-L'attribut `v-bind` est une des **directives** de Vue. Elle permet de lier l'attribut à une valeur dynamique (`v-bind` peut être abrégé par "`:`"). 
+L'attribut `v-bind` est une des **directives** de Vue. Elle permet de lier l'attribut à une valeur dynamique (`v-bind` peut être abrégé par "`:`").
 ```html
 <!--template-->
 <div id="app">
   <span :title="message">Hello again !</span>
 </div>
-```   
-
+```
 
 ## Directive
-Une **directive** est un attribut spécial fourni par le framework ; elle applique un comportement *réactif* spécifique au DOM après rendu.  
+Une **directive** est un attribut spécial fourni par le framework ; elle applique un comportement _réactif_ spécifique au DOM après rendu.
+Dans Vue, les directives sont préfixées par `v-`.
   
-Dans Vue, les directives sont préfixées par `v-`. 
-  
-*Remarque : côté un peu magique du framework avec la liaison "automatique" des données et de la vue.*
-
+_Remarque : côté un peu magique du framework avec la liaison "automatique" des données et de la vue._
 
 ### Rendu conditionnel
 
 #### Directive `v-if`, `v-else`
-  
 <pre><code class="html" data-trim contenteditable >
 <div id="app-3">
   <p v-if="seen">Maintenant vous me voyez</p>
   <p v-else>Ou pas</p>
 </div>
 </code></pre>
-  
 <pre><code class="javascript" data-trim contenteditable >
 let app3 = new Vue({
   el: '#app-3',
@@ -85,12 +78,12 @@ let app3 = new Vue({
   }
 })
 </code></pre>
+  
 et le `v-else-if`?
 
 #### Directive `v-show`
 `v-show` : toujours rendu, permutation basée sur du CSS.  
 Le `v-if` est un vrai rendu conditionnel (construction/destruction des listeners). Ne se rend que quand la condition est vraie pour la première fois.
-
 
 ### Rendu de listes (boucles)
 
@@ -99,20 +92,17 @@ Le `v-if` est un vrai rendu conditionnel (construction/destruction des listeners
 <ul id="maliste-1">
   <li v-for="item in items">
       <!-- item est un alias de l'élément en cours d'itération-->
-    {{ item.message }} 
+    {{ item.message }}
   </li>
 </ul>
 ```
-```js 
+```js
 let maliste = new Vue({
-  el: '#maliste-1',
-  data: {
-    items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
-    ]
-  }
-})
+    el: "#maliste-1",
+    data: {
+        items: [{ message: "Foo" }, { message: "Bar" }]
+    }
+});
 ```
 ```txt
 • Foo
@@ -129,15 +119,12 @@ let maliste = new Vue({
 ```
 ```js
 new Vue({
-  el: '#iterobject',
-  data: {
-    parentMessage: 'Parent',
-    items: [
-      { message: 'Foo' },
-      { message: 'Bar' }
-    ]
-  }
-})
+    el: "#iterobject",
+    data: {
+        parentMessage: "Parent",
+        items: [{ message: "Foo" }, { message: "Bar" }]
+    }
+});
 ```
 Qu'est-ce qui s'affiche?
 
@@ -151,15 +138,15 @@ Qu'est-ce qui s'affiche?
 ```
 ```js
 new Vue({
-  el: '#iterobject',
-  data: {
-    object: {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30
+    el: "#iterobject",
+    data: {
+        object: {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30
+        }
     }
-  }
-})
+});
 ```
 Qu'est-ce qui s'affiche?
 
@@ -173,15 +160,15 @@ Qu'est-ce qui s'affiche?
 ```
 ```js
 new Vue({
-  el: '#iterobject',
-  data: {
-    object: {
-      firstName: 'John',
-      lastName: 'Doe',
-      age: 30
+    el: "#iterobject",
+    data: {
+        object: {
+            firstName: "John",
+            lastName: "Doe",
+            age: 30
+        }
     }
-  }
-})
+});
 ```
 Qu'est-ce qui s'affiche?
 
@@ -193,8 +180,8 @@ La mise à jour d'une liste peut etre coûteuse. Dans Vue pour aider à traquer 
 </div>
 ```
 
-
 ### Gestion des évènements
+Similaire à la couche évenementiel du DOM (gestion par callback).
 
 #### Directive `v-on`
 ```html
@@ -205,15 +192,13 @@ La mise à jour d'une liste peut etre coûteuse. Dans Vue pour aider à traquer 
 ```
 ```js
 let example1 = new Vue({
-  el: '#counter',
-  data: {
-    counter: 0
-  }
-})
+    el: "#counter",
+    data: {
+        counter: 0
+    }
+});
 ```
 
-#### Directive `v-on`
-Similaire à la couche évenementiel du DOM : accepte des méthodes (callback). 
 ```html
 <div id="hello">
   <button v-on:click="greet($event,'L3')">Greet</button>
@@ -222,40 +207,41 @@ Similaire à la couche évenementiel du DOM : accepte des méthodes (callback).
 ```
 ```js
 let example2 = new Vue({
-  el: '#hello',
-  data: { name: 'Caroline' },
-  methods: {
-    greet: function (event, niveau) {
-      if(event) {
-          alert(event.target.tagName, this.name 
-          + ' greets '+niveau+'!')}
-    },
-    greet2: (niveau) => niveau+ " hello",
-  }
-})
+    el: "#hello",
+    data: { name: "Caroline" },
+    methods: {
+        greet: function(event, niveau) {
+            if (event) {
+                alert(
+                    event.target.tagName,
+                    this.name + " greets " + niveau + "!"
+                );
+            }
+        },
+        greet2: niveau => niveau + " hello"
+    }
+});
 ```
 
 #### Modificateurs d'évènement
 Comme pour `event.preventDefault()` ou `event.stopPropagation()` Vue permet d'utiliser des suffixes à de directive pour préserver la logique des données dans les méthodes.
   
-Modificateurs ([ref](https://fr.vuejs.org/v2/guide/events.html#Modificateurs-d%E2%80%99evenements)) : `.stop , .prevent, .capture, .self, .once, .passive` 
-  
+Modificateurs ([ref](https://fr.vuejs.org/v2/guide/events.html#Modificateurs-d%E2%80%99evenements)) : `.stop , .prevent, .capture, .self, .once, .passive`
 Exemples :
 ```html
+<!-- equivalent à  event.stopPropagation()-->
 <a v-on:click.stop="doThis"></a>
 <!-- l'évènement `submit` ne rechargera plus la page -->
 <form v-on:submit.prevent="onSubmit"></form>
 ```
 
-#### Listener dans le HTML 
-Separation of concerns?
-Le Modèle-Vue gère la vue courante donc pas de difficulté de maintenance.
+#### Des listener dans le HTML ? et la séparation des responsabilités ?
   
-Avantages: 
-* localiser l'implémentation des gestionnaires dans le JS en regardant le HTML
-* Pas d'attache manuel de l'événement (magie du framework)
-* Suppression automatique des listeners à al destruction du Modèle-vue.
-
+* Le Modèle-Vue gère la vue courante donc pas de difficulté de maintenance.
+* Avantages:
+    -   Localiser l'implémentation des gestionnaires dans le JS en regardant le HTML
+    -   Pas d'attache manuel de l'événement (magie du framework)
+    -   Suppression automatique des listeners à al destruction du Modèle-vue.
 
 ### Binding bi-directionnel
 
@@ -267,5 +253,15 @@ Liaison bi-directectionnel entre le modèle et la vue sur les champs de formulai
 <input type="checkbox" id="checkbox" v-model="checked">
 <label for="checkbox">{{ checked }}</label>
 ```
-  
-Possède des modificateurs (.lazy, .number, .trim)
+Possède des modificateurs (`.lazy`, `.number`, `.trim`)
+
+
+## Résumé des directives
+<p data-trim contenteditable >
+ v-bind<br/>
+ v-if/v-else-if/v-else<br/>
+ v-for with keys (arrays and objects)<br/>
+ v-on<br/>
+ v-model<br/>
+ 
+</p>

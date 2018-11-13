@@ -61,7 +61,7 @@ body {
   word-wrap: break-word; }
 
 .reveal h1 {
-  font-size: 3em; }
+  font-size: 3.77em; }
 
 .reveal h2 {
   font-size: 2.11em; }
@@ -80,9 +80,7 @@ body {
  *********************************************/
 .reveal p {
   margin: 20px 0;
-  line-height: 1.3; 
-  text-align: left;
-}
+  line-height: 1.3; }
 
 /* Ensure certain elements are never larger than the slide itself */
 .reveal img,
@@ -139,7 +137,7 @@ body {
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2); }
-.reveal blockquote >p{text-align: center}
+
 .reveal blockquote p:first-child,
 .reveal blockquote p:last-child {
   display: inline-block; }
@@ -162,9 +160,7 @@ body {
 .reveal code {
   font-family: monospace;
   text-transform: none; }
-.reveal p > code{
-    color:#D69D85;
-}
+
 .reveal pre code {
   display: block;
   padding: 5px;

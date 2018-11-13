@@ -45,6 +45,10 @@ module.exports = function (grunt) {
 				src: ['*.sass', '*.scss'],
 				dest: 'css/theme',
 				ext: '.css'
+			},
+			mine: {
+				src: 'css/mine.scss',
+				dest: 'css/mine.css'
 			}
 		},
 
