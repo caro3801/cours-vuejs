@@ -14,13 +14,15 @@ Le Vue-Modèle dans MVVM
 var data = { a: 1 };
 // L'objet est ajouté à une instance de Vue
 var vm = new Vue({
-  data: data
+  data: data,
+  methods:{//les propriétés calculées
+    sayHello:function(){ console.log("hello");}
+  }
 })
-// Récupérer la propriété depuis l'instance
-// retourne celle des données originales
-vm.a == data.a // => true
-vm.a = 2
-data.a = 3
+// La ppté depuis l'instance retourne celle des données originales
+vm.a == data.a; // => true
+vm.a = 2;
+data.a = 3;
 ```
 Quand ces données changent, le rendu de la vue est refait. Il est à noter que les propriétés dans data sont **réactives**
 
@@ -34,14 +36,15 @@ Quand ces données changent, le rendu de la vue est refait. Il est à noter que 
 new Vue({
   data: {
     a: 1
-  },
+  },//lecycle de vie
   created: function () {
     // `this` est une référence à l'instance de vm
     console.log('a is: ' + this.a)
   },
-  mounted: function () {
-    // `this` est une référence à l'instance de vm
-    console.log("i'm mounted")
+  mounted: function () { console.log("i'm mounted")  },
+  methods:{//les propriétés calculées
+  },computed:{   //les propriétés calculées (cache)
+  },watch:{ //les propriétés observées 
   }
 })
 ```

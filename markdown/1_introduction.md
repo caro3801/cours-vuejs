@@ -1,4 +1,5 @@
 # Introduction à Vue.js
+<img src="img/logo.png" style="position:absolute;border:none;background:none;">
 
 ## Présentation
 * Vue (prononcé /vjuː/ - view) 

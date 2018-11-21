@@ -1,6 +1,6 @@
 # Composants
 
-Abstraction permettant de créer des composaants réutilisables et autonomes. 
+Abstraction permettant de créer des composants réutilisables et autonomes. 
 > une applications = arbre de composants  
   
 ![alt text](./img/components.png "Composition application")
@@ -58,14 +58,8 @@ var malistedecourses = new Vue({
 
 ### Composants Vue et Custom Elements
 
-Parallèle composants Vue et Custom Elements (spec Web Components) :
+Parallèle entre composants Vue et Custom Elements (spec Web Components) :
 * Syntaxe proche
-* La spec des WC est finalisée mais pas implémentée (pas besoin de polyfill avec Vue)
+* La spec des Web Components est finalisée mais pas implémentée (pas besoin de polyfill avec Vue)
 * Un composant de Vue peut etre implémenté a l'interieur d'un élément natif
 * Fonctionnalités supplémentaires das les composants de Vue (flux de données, event personnalisé, integration des outils de build)
-
-## Methods vs computed
-`methods` sont des méthodes. Elles sont systèmatiquement toutes appelées lorsque l'une d'elle est appelée. Prend des paramètres.  
-`computed` sont des propriétés compilées => la propriété est ré-évaluée seulement si une de ses dépendance change. Ne prend pas de paramètre. Lors de l'instanciation de la vue, elles sont converties sous forme de propriété
-  
-Conclusion : si les données doivent être mise en cache, utiliser les propriétés computed, sinon methods.

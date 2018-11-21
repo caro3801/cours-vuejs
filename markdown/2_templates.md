@@ -85,6 +85,16 @@ et le `v-else-if`?
 `v-show` : toujours rendu, permutation basée sur du CSS.  
 Le `v-if` est un vrai rendu conditionnel (construction/destruction des listeners). Ne se rend que quand la condition est vraie pour la première fois.
 
+#### Binding sur les classes (style)
+Liaison de Classes HTML  
+Il est possible de passer un objet à v-bind:class pour permuter les classes automatiquement :
+<pre><code class="html" data-trim contenteditable >
+<div id="app-3">
+  <p v-if="seen" :class="{active:seen}">Maintenant vous me voyez</p>
+  <p v-else>Ou pas</p>
+</div>
+</code></pre>
+
 ### Rendu de listes (boucles)
 
 #### Directive `v-for` sur un tableau
