@@ -170,7 +170,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-retire');
 	grunt.loadNpmTasks('grunt-sass');
-	grunt.loadNpmTasks('grunt-zip');
+    grunt.loadNpmTasks('grunt-zip');
+    grunt.loadNpmTasks('grunt-browserify');
 
 	// Default task
 	grunt.registerTask('default', ['css', 'js']);
