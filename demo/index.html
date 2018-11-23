@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Demo vuejs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/marked@0.3.6"></script>
+    <script src="https://unpkg.com/lodash@4.16.0"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    
+    <!--template-->
+<div id="app">
+    <h2>Creation d'un instance et demonstration cycle de vie (regarder la console)</h1>
+    {{ message }}
+    <hr>
+    <h2>Binding de propriétés réactives</h1>
+    <span v-bind:title="datetitle">Hello again ! (passer la souris dessus)</span>
+    <hr>
+    <h2>V-if/v-else</h2>
+    <button @click="seen = !seen">Toggle</button>
+    <p v-if="seen">Maintenant vous me voyez</p>
+    <p v-else>Ou pas</p>
+     <hr>
+     
+    <h2>V-for</h2>
+    <ul id="maliste-1">
+        <li v-for="(item, index) in items">
+            <!-- item est un alias de l'élément en cours d'itération-->
+            {{ parentMessage }} - {{ index }} - {{ item.message }}
+        </li>
+    </ul>
+</div>
+    <!-- <div id="editor" >
+        <textarea :value="input" @input="update" ></textarea>
+        <div v-html="compiledMarkdown" ></div>
+    </div> -->
+
+</body>
+</html>
